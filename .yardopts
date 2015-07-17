@@ -1,0 +1,3 @@
+--asset LICENSE
+--exclude lib/separator/version.rb
+--output doc/api
