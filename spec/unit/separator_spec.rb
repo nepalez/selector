@@ -11,6 +11,13 @@ module Separator
 
     end # describe ::ANYTHING
 
+    describe "::NOTHING" do
+
+      subject { described_class::NOTHING }
+      it { is_expected.to be_kind_of Nothing }
+
+    end # describe ::NOTHING
+
   end # describe Separator
 
 end # module Separator
