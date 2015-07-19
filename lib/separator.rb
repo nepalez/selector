@@ -11,6 +11,8 @@ require_relative "separator/not"
 require_relative "separator/and"
 require_relative "separator/or"
 
+require_relative "separator/collection"
+
 # Composable filters for lists of values
 #
 module Separator
