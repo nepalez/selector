@@ -7,6 +7,8 @@ require_relative "separator/condition"
 require_relative "separator/anything"
 require_relative "separator/nothing"
 
+require_relative "separator/not"
+
 # Composable filters for lists of values
 #
 module Separator

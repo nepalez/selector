@@ -85,6 +85,17 @@ module Separator
 
     end # describe #[]
 
+    describe "#!" do
+
+      subject { !condition }
+
+      it "returns the inversion" do
+        expect(subject).to be_kind_of Not
+        expect(subject.attributes).to eql [condition]
+      end
+
+    end # describe #!
+
   end # describe Separator::Condition
 
 end # module Separator

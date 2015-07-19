@@ -52,6 +52,14 @@ module Separator
       fail NotImplementedError.new "#{self.class}#[] not implemented"
     end
 
+    # Inverts the condition
+    #
+    # @return [Separator::Condition]
+    #
+    def !
+      Not.new(self)
+    end
+
   end # class Condition
 
 end # module Separator
