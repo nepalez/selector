@@ -60,6 +60,40 @@ module Separator
       Not.new(self)
     end
 
+    # Composes (by AND) the condition to the other condition
+    #
+    # @param [Separator::Condition] other
+    #
+    # @return [Separator::Condition]
+    #
+    def &(other)
+      And.new(self, other)
+    end
+
+    # Composes (by AND) the condition to inversion of the other condition
+    #
+    # This is the same as `&(!other)`
+    #
+    # @param [Separator::Condition] other
+    #
+    # @return [Separator::Condition]
+    #
+    def -(other)
+      And.new(self, !other)
+    end
+
+    # Composes (by OR) the condition to the other condition
+    #
+    # This is the same as `!((!self)&(!other))`
+    #
+    # @param [Separator::Condition] other
+    #
+    # @return [Separator::Condition]
+    #
+    def |(other)
+      Or.new(self, other)
+    end
+
   end # class Condition
 
 end # module Separator

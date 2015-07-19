@@ -8,6 +8,8 @@ require_relative "separator/anything"
 require_relative "separator/nothing"
 
 require_relative "separator/not"
+require_relative "separator/and"
+require_relative "separator/or"
 
 # Composable filters for lists of values
 #

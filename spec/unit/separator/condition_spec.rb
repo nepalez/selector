@@ -7,6 +7,7 @@ module Separator
     let(:test_klass) { Class.new(described_class)           }
     let(:attributes) { 2.times.map { double(freeze: true) } }
     let(:condition)  { test_klass.new(*attributes)          }
+    let(:other)      { test_klass.new                       }
 
     describe ".new" do
 
@@ -95,6 +96,39 @@ module Separator
       end
 
     end # describe #!
+
+    describe "#&" do
+
+      subject { condition & other }
+
+      it "creates composition" do
+        expect(subject).to be_kind_of(And)
+        expect(subject.attributes).to contain_exactly(condition, other)
+      end
+
+    end # describe #&
+
+    describe "#-" do
+
+      subject { condition - other }
+
+      it "creates composition" do
+        expect(subject).to be_kind_of(And)
+        expect(subject.attributes).to contain_exactly(condition, !other)
+      end
+
+    end # describe #
+
+    describe "#|" do
+
+      subject { condition | other }
+
+      it "creates composition" do
+        expect(subject).to be_kind_of(Or)
+        expect(subject.attributes).to contain_exactly(condition, other)
+      end
+
+    end # describe #|
 
   end # describe Separator::Condition
 
