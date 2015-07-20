@@ -105,6 +105,44 @@ module Separator
 
     end # describe #build
 
+    describe ".new" do
+
+      subject { described_class.new options }
+
+      context "with empty options" do
+
+        let(:options) { {} }
+        it { is_expected.to eql ANYTHING }
+
+      end # context
+
+      context "with a whitelist" do
+
+        let(:options) { { only: /foo/ } }
+
+        it "creates condition" do
+          expect(subject).to be_kind_of Regexp
+          expect(subject.attribute).to eql(/foo/)
+        end
+
+      end # context
+
+      context "with a blacklist" do
+
+        let(:options) { { except: /foo/ } }
+
+        it "creates condition" do
+          expect(subject).to be_kind_of Not
+          inverted = subject.attribute
+
+          expect(inverted).to be_kind_of Regexp
+          expect(inverted.attribute).to eql(/foo/)
+        end
+
+      end
+
+    end # describe .new
+
   end # describe Separator
 
 end # module Separator

@@ -20,6 +20,18 @@ require_relative "separator/function"
 #
 module Separator
 
+  # Creates a condition from options
+  #
+  # @param [Hash] options
+  #
+  # @return [Separator::Condition]
+  #
+  def self.new(options)
+    white = options.fetch(:only)   { ANYTHING }
+    black = options.fetch(:except) { NOTHING  }
+    build(white) - build(black)
+  end
+
   # Factory method that builds a condition instance depending on argument type
   #
   # @param [Object] clause
