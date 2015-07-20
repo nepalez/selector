@@ -8,6 +8,7 @@ module Selector
   #
   class Regexp < Condition
 
+    # @!method initialize(regexp)
     # Initializes the condition with the regexp
     #
     # @param [::Regexp] regexp

@@ -8,6 +8,7 @@ module Selector
   #
   class Function < Condition
 
+    # @!method initialize(function)
     # Initializes the condition with a function
     #
     # @param [#call] function
