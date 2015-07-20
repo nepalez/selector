@@ -18,6 +18,93 @@ module Separator
 
     end # describe ::NOTHING
 
+    describe ".build" do
+
+      subject { described_class.build value }
+
+      context "ANYTHING" do
+
+        let(:value) { ANYTHING }
+        it { is_expected.to eql ANYTHING }
+
+      end # context
+
+      context "NOTHING" do
+
+        let(:value) { NOTHING }
+        it { is_expected.to eql NOTHING }
+
+      end # context
+
+      context "regexp" do
+
+        let(:value) { /foo/ }
+
+        it "builds the Regexp" do
+          expect(subject).to be_kind_of Regexp
+          expect(subject.attribute).to eql(/foo/)
+        end
+
+      end # context
+
+      context "function" do
+
+        let(:value) { -> v { v == :foo } }
+
+        it "builds the Function" do
+          expect(subject).to be_kind_of Function
+          expect(subject[:foo]).to eql(true)
+          expect(subject[:bar]).to eql(false)
+        end
+
+      end # context
+
+      context "array" do
+
+        let(:value) { [:foo, :bar] }
+
+        it "builds the Array" do
+          expect(subject).to be_kind_of Array
+          expect(subject.attribute).to eql(Set.new [:foo, :bar])
+        end
+
+      end # context
+
+      context "set" do
+
+        let(:value) { Set.new [:foo, :bar] }
+
+        it "builds the Array" do
+          expect(subject).to be_kind_of Array
+          expect(subject.attribute).to eql(Set.new [:foo, :bar])
+        end
+
+      end # context
+
+      context "range" do
+
+        let(:value) { 1..4 }
+
+        it "builds the Collection" do
+          expect(subject).to be_kind_of Collection
+          expect(subject.attribute).to eql(1..4)
+        end
+
+      end # context
+
+      context "single object" do
+
+        let(:value) { 1 }
+
+        it "builds the Array" do
+          expect(subject).to be_kind_of Array
+          expect(subject.attribute).to eql(Set.new [1])
+        end
+
+      end # context
+
+    end # describe #build
+
   end # describe Separator
 
 end # module Separator
