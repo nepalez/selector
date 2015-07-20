@@ -52,10 +52,11 @@ separator[:bar] # => false
 ### Negation
 
 ```ruby
-separator = Separator.new except: /bar/
+blacklist = Separator.new except: /bar/
+separator = !blacklist
 
-!separator[:foo] # => false
-!separator[:bar] # => true
+separator[:bar] # => true
+separator[:foo] # => false
 ```
 
 ### Algebra
@@ -76,8 +77,9 @@ whitelist = Separator.new only: /foo/
 
 separator = whitelist - blacklist # = whitelist + !blacklist
 
-separator[:foobaz] # => false
 separator[:foobar] # => true
+separator[:foo] # => false
+separator[:bar] # => false
 ```
 
 ```ruby
@@ -85,9 +87,9 @@ blacklist = Separator.new except: 1..5
 whitelist = Separator.new only: 4..8
 
 separator = whitelist | blacklist # = !(!whitelist + !blacklist)
-separator[0]   # => true
+separator[0.5] # => true
+separator[5.5] # => true
 separator[2.5] # => false
-separator[10]  # => true
 ```
 
 ### Immutability:
