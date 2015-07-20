@@ -14,6 +14,7 @@ require_relative "separator/or"
 require_relative "separator/collection"
 require_relative "separator/array"
 require_relative "separator/regexp"
+require_relative "separator/function"
 
 # Composable filters for lists of values
 #
