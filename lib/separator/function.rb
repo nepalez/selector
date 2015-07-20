@@ -28,7 +28,7 @@ module Separator
     # @return (see Separator::Condition#[])
     #
     def [](value)
-      nil ^ attribute.call(value)
+      attribute.call(value) ? true : false
     end
 
   end # class Function

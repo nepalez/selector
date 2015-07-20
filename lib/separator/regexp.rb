@@ -28,7 +28,7 @@ module Separator
     # @return (see Separator::Condition#[])
     #
     def [](value)
-      nil ^ value.to_s[attribute]
+      value.to_s[attribute] ? true : false
     end
 
     # Creates an OR composition

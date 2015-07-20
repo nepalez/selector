@@ -36,7 +36,7 @@ module Separator
     # @return (see Separator::Composition#[])
     #
     def [](value)
-      nil ^ attributes.detect { |part| part[value] }
+      attributes.detect { |part| part[value] } ? true : false
     end
 
     # Adds the other condition to the composition (avoids nesting)
