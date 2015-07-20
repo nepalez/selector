@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The condition checks if the function returns truthy result for a value
   #
@@ -19,13 +19,13 @@ module Separator
     # Checks if the function returns truthy for value
     #
     # @example
-    #   condition = Separator::Function.new -> v { v[/foo/] }
+    #   condition = Selector::Function.new -> v { v[/foo/] }
     #   condition[:foo] # => true
     #   condition[:bar] # => false
     #
-    # @param (see Separator::Condition#[])
+    # @param (see Selector::Condition#[])
     #
-    # @return (see Separator::Condition#[])
+    # @return (see Selector::Condition#[])
     #
     def [](value)
       attribute.call(value) ? true : false
@@ -33,4 +33,4 @@ module Separator
 
   end # class Function
 
-end # module Separator
+end # module Selector

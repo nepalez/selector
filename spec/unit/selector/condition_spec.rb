@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Condition do
+  describe Selector::Condition do
 
     let(:test_klass) { Class.new(described_class)           }
     let(:attributes) { 2.times.map { double(freeze: true) } }
@@ -130,6 +130,6 @@ module Separator
 
     end # describe #|
 
-  end # describe Separator::Condition
+  end # describe Selector::Condition
 
-end # module Separator
+end # module Selector

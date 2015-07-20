@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The condition checks if a value matches the regexp
   #
@@ -19,13 +19,13 @@ module Separator
     # Checks if the stringified value matches the regexp
     #
     # @example
-    #   condition = Separator::Regexp.new /1/
+    #   condition = Selector::Regexp.new /1/
     #   condition[11] # => true
     #   condition[22] # => false
     #
-    # @param (see Separator::Condition#[])
+    # @param (see Selector::Condition#[])
     #
-    # @return (see Separator::Condition#[])
+    # @return (see Selector::Condition#[])
     #
     def [](value)
       value.to_s[attribute] ? true : false
@@ -35,9 +35,9 @@ module Separator
     #
     # If other value is a regexp, then creates modified regexp to avoid nesting
     #
-    # @param (see Separator::Composition#|)
+    # @param (see Selector::Composition#|)
     #
-    # @return (see Separator::Composition#|)
+    # @return (see Selector::Composition#|)
     #
     def |(other)
       return super unless other.instance_of? Regexp
@@ -46,4 +46,4 @@ module Separator
 
   end # class Regexp < Condition
 
-end # module Separator
+end # module Selector

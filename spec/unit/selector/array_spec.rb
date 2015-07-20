@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Array do
+  describe Selector::Array do
 
     let(:left)  { described_class.new [:foo, :bar] }
     let(:right) { described_class.new [:bar, :baz] }
@@ -71,6 +71,6 @@ module Separator
 
     end # describe #&
 
-  end # describe Separator::Array
+  end # describe Selector::Array
 
-end # module Separator
+end # module Selector

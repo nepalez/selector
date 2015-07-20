@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The condition checks if a value is included to the array
   #
@@ -15,9 +15,9 @@ module Separator
     #
     # If other value is a array, then creates modified array to avoid nesting
     #
-    # @param (see Separator::Composition#&)
+    # @param (see Selector::Composition#&)
     #
-    # @return (see Separator::Composition#&)
+    # @return (see Selector::Composition#&)
     #
     def &(other)
       return super unless other.instance_of? self.class
@@ -28,9 +28,9 @@ module Separator
     #
     # If other value is a array, then creates modified array to avoid nesting
     #
-    # @param (see Separator::Composition#|)
+    # @param (see Selector::Composition#|)
     #
-    # @return (see Separator::Composition#|)
+    # @return (see Selector::Composition#|)
     #
     def |(other)
       return super unless other.instance_of? self.class
@@ -39,4 +39,4 @@ module Separator
 
   end # class Array
 
-end # module Separator
+end # module Selector

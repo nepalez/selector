@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The inversion of another condition
   #
@@ -16,7 +16,7 @@ module Separator
     # Checks if the value doesn't satisfy inverted condition
     #
     # @example
-    #   condition = Separator.new(only: [:foo])
+    #   condition = Selector.new(only: [:foo])
     #   inversion[:foo] # => true
     #   inversion[:bar] # => false
     #
@@ -24,9 +24,9 @@ module Separator
     #   inversion[:foo] # => false
     #   inversion[:bar] # => true
     #
-    # @param (see Separator::Condition#[])
+    # @param (see Selector::Condition#[])
     #
-    # @return (see Separator::Condition#[])
+    # @return (see Selector::Condition#[])
     #
     def [](value)
       !attribute[value]
@@ -35,11 +35,11 @@ module Separator
     # Returns the inverted condition (avoids double negation)
     #
     # @example
-    #   condition = Separator.new(only: [:foo])
+    #   condition = Selector.new(only: [:foo])
     #   inversion = Not.new(condition)
     #   !inversion == condition # => true
     #
-    # @return (see Separator::Condition#!)
+    # @return (see Selector::Condition#!)
     #
     def !
       attribute
@@ -47,4 +47,4 @@ module Separator
 
   end # class Not
 
-end # module Separator
+end # module Selector

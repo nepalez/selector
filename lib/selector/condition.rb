@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # Describe an immutable condition for selecting values
   #
@@ -54,7 +54,7 @@ module Separator
 
     # Inverts the condition
     #
-    # @return [Separator::Condition]
+    # @return [Selector::Condition]
     #
     def !
       Not.new(self)
@@ -62,9 +62,9 @@ module Separator
 
     # Composes (by AND) the condition to the other condition
     #
-    # @param [Separator::Condition] other
+    # @param [Selector::Condition] other
     #
-    # @return [Separator::Condition]
+    # @return [Selector::Condition]
     #
     def &(other)
       And.new(self, other)
@@ -74,9 +74,9 @@ module Separator
     #
     # This is the same as `&(!other)`
     #
-    # @param [Separator::Condition] other
+    # @param [Selector::Condition] other
     #
-    # @return [Separator::Condition]
+    # @return [Selector::Condition]
     #
     def -(other)
       And.new(self, !other)
@@ -86,9 +86,9 @@ module Separator
     #
     # This is the same as `!((!self)&(!other))`
     #
-    # @param [Separator::Condition] other
+    # @param [Selector::Condition] other
     #
-    # @return [Separator::Condition]
+    # @return [Selector::Condition]
     #
     def |(other)
       Or.new(self, other)
@@ -96,4 +96,4 @@ module Separator
 
   end # class Condition
 
-end # module Separator
+end # module Selector

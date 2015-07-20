@@ -9,4 +9,4 @@ rescue LoadError
 end
 
 # Loads the code under test
-require "separator"
+require "selector"

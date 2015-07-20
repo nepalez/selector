@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The composition of several conditions. Requires each of them to be satisfied
   #
@@ -23,17 +23,17 @@ module Separator
     # Checks if value satisfies each of composed conditions
     #
     #   @example
-    #     left  = Separator.new only: /foo/
-    #     right = Separator.new only: /bar/
-    #     composition = Separator::And.new(left, right)
+    #     left  = Selector.new only: /foo/
+    #     right = Selector.new only: /bar/
+    #     composition = Selector::And.new(left, right)
     #
     #     composition[:foo]    # => false
     #     composition[:bar]    # => false
     #     composition[:foobar] # => true
     #
-    # @param (see Separator::Composition#[])
+    # @param (see Selector::Composition#[])
     #
-    # @return (see Separator::Composition#[])
+    # @return (see Selector::Composition#[])
     #
     def [](value)
       attributes.detect { |part| !part[value] } ? false : true
@@ -41,9 +41,9 @@ module Separator
 
     # Adds the other condition to the composition (avoids nesting)
     #
-    # @param (see Separator::Composition#&)
+    # @param (see Selector::Composition#&)
     #
-    # @return (see Separator::Composition#&)
+    # @return (see Selector::Composition#&)
     #
     def &(other)
       And.new(*attributes, other)
@@ -51,9 +51,9 @@ module Separator
 
     # Adds inversion of the other condition to the composition (avoids nesting)
     #
-    # @param (see Separator::Composition#-)
+    # @param (see Selector::Composition#-)
     #
-    # @return (see Separator::Composition#-)
+    # @return (see Selector::Composition#-)
     #
     def -(other)
       And.new(*attributes, !other)
@@ -61,4 +61,4 @@ module Separator
 
   end # class And
 
-end # module Separator
+end # module Selector

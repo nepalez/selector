@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Collection do
+  describe Selector::Collection do
 
     let(:collection) { described_class.new set }
     let(:set)        { Set.new [:foo, :bar]    }
@@ -43,6 +43,6 @@ module Separator
 
     end # describe #[]
 
-  end # describe Separator::Collection
+  end # describe Selector::Collection
 
-end # module Separator
+end # module Selector

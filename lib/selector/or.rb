@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The composition of several conditions. Requires any of them to be satisfied
   #
@@ -23,17 +23,17 @@ module Separator
     # Checks if value satisfies any of composed conditions
     #
     #   @example
-    #     left  = Separator.new only: /foo/
-    #     right = Separator.new only: /bar/
-    #     composition = Separator::Or.new(left, right)
+    #     left  = Selector.new only: /foo/
+    #     right = Selector.new only: /bar/
+    #     composition = Selector::Or.new(left, right)
     #
     #     composition[:foo] # => true
     #     composition[:bar] # => true
     #     composition[:baz] # => false
     #
-    # @param (see Separator::Composition#[])
+    # @param (see Selector::Composition#[])
     #
-    # @return (see Separator::Composition#[])
+    # @return (see Selector::Composition#[])
     #
     def [](value)
       attributes.detect { |part| part[value] } ? true : false
@@ -41,9 +41,9 @@ module Separator
 
     # Adds the other condition to the composition (avoids nesting)
     #
-    # @param (see Separator::Composition#|)
+    # @param (see Selector::Composition#|)
     #
-    # @return (see Separator::Composition#|)
+    # @return (see Selector::Composition#|)
     #
     def |(other)
       Or.new(*attributes, other)
@@ -51,4 +51,4 @@ module Separator
 
   end # class Or
 
-end # module Separator
+end # module Selector

@@ -3,32 +3,32 @@
 describe "Composition" do
 
   it "& works" do
-    blacklist = Separator.new except: /bar/
-    whitelist = Separator.new only: /foo/
-    separator = whitelist & blacklist
+    blacklist = Selector.new except: /bar/
+    whitelist = Selector.new only: /foo/
+    selector = whitelist & blacklist
 
-    expect(separator[:foobaz]).to eql(true)
-    expect(separator[:foobar]).to eql(false)
+    expect(selector[:foobaz]).to eql(true)
+    expect(selector[:foobar]).to eql(false)
   end
 
   it "- works" do
-    whitelist = Separator.new only: /foo/
-    blacklist = Separator.new except: /bar/
-    separator = whitelist - blacklist
+    whitelist = Selector.new only: /foo/
+    blacklist = Selector.new except: /bar/
+    selector = whitelist - blacklist
 
-    expect(separator[:foobar]).to eql(true)
-    expect(separator[:bar]).to eql(false)
-    expect(separator[:foo]).to eql(false)
+    expect(selector[:foobar]).to eql(true)
+    expect(selector[:bar]).to eql(false)
+    expect(selector[:foo]).to eql(false)
   end
 
   it "| works" do
-    whitelist = Separator.new only: 4..8
-    blacklist = Separator.new except: 1..5
-    separator = whitelist | blacklist
+    whitelist = Selector.new only: 4..8
+    blacklist = Selector.new except: 1..5
+    selector = whitelist | blacklist
 
-    expect(separator[0.5]).to eql(true)
-    expect(separator[5.5]).to eql(true)
-    expect(separator[2.5]).to eql(false)
+    expect(selector[0.5]).to eql(true)
+    expect(selector[5.5]).to eql(true)
+    expect(selector[2.5]).to eql(false)
   end
 
 end # describe Composition

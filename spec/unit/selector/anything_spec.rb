@@ -1,14 +1,14 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Nothing do
+  describe Selector::Anything do
 
-    let(:nothing) { described_class.instance }
+    let(:anything) { described_class.instance }
 
     describe ".instance" do
 
-      subject { nothing }
+      subject { anything }
 
       it { is_expected.to be_kind_of Condition }
       it { is_expected.to be_kind_of Singleton }
@@ -18,12 +18,12 @@ module Separator
 
     describe "#[]" do
 
-      subject { nothing[:foo] }
+      subject { anything[:foo] }
 
-      it { is_expected.to eql(false) }
+      it { is_expected.to eql(true) }
 
     end # describe #[]
 
-  end # describe Separator::Nothing
+  end # describe Selector::Anything
 
-end # module Separator
+end # module Selector

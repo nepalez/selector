@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator do
+  describe Selector do
 
     describe "::ANYTHING" do
 
@@ -143,6 +143,6 @@ module Separator
 
     end # describe .new
 
-  end # describe Separator
+  end # describe Selector
 
-end # module Separator
+end # module Selector

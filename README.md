@@ -1,19 +1,19 @@
-[WIP] Separator
+[WIP] Selector
 ===============
 
-[![Gem Version](https://img.shields.io/gem/v/separator.svg?style=flat)][gem]
-[![Build Status](https://img.shields.io/travis/nepalez/separator/master.svg?style=flat)][travis]
-[![Dependency Status](https://img.shields.io/gemnasium/nepalez/separator.svg?style=flat)][gemnasium]
-[![Code Climate](https://img.shields.io/codeclimate/github/nepalez/separator.svg?style=flat)][codeclimate]
-[![Coverage](https://img.shields.io/coveralls/nepalez/separator.svg?style=flat)][coveralls]
-[![Inline docs](http://inch-ci.org/github/nepalez/separator.svg)][inch]
+[![Gem Version](https://img.shields.io/gem/v/selector.svg?style=flat)][gem]
+[![Build Status](https://img.shields.io/travis/nepalez/selector/master.svg?style=flat)][travis]
+[![Dependency Status](https://img.shields.io/gemnasium/nepalez/selector.svg?style=flat)][gemnasium]
+[![Code Climate](https://img.shields.io/codeclimate/github/nepalez/selector.svg?style=flat)][codeclimate]
+[![Coverage](https://img.shields.io/coveralls/nepalez/selector.svg?style=flat)][coveralls]
+[![Inline docs](http://inch-ci.org/github/nepalez/selector.svg)][inch]
 
-[codeclimate]: https://codeclimate.com/github/nepalez/separator
-[coveralls]: https://coveralls.io/r/nepalez/separator
-[gem]: https://rubygems.org/gems/separator
-[gemnasium]: https://gemnasium.com/nepalez/separator
-[travis]: https://travis-ci.org/nepalez/separator
-[inch]: https://inch-ci.org/github/nepalez/separator
+[codeclimate]: https://codeclimate.com/github/nepalez/selector
+[coveralls]: https://coveralls.io/r/nepalez/selector
+[gem]: https://rubygems.org/gems/selector
+[gemnasium]: https://gemnasium.com/nepalez/selector
+[travis]: https://travis-ci.org/nepalez/selector
+[inch]: https://inch-ci.org/github/nepalez/selector
 
 Composable multi-type conditions.
 
@@ -23,79 +23,79 @@ Synopsis
 ### White Lists
 
 ```ruby
-separator = Separator.new only: [:foo, :qux]
-separator[:foo] # => true
-separator[:bar] # => false
+selector = Selector.new only: [:foo, :qux]
+selector[:foo] # => true
+selector[:bar] # => false
 
-separator = Separator.new only: /foo/
-separator[:foobar] # => true
-separator[:bar]    # => false
+selector = Selector.new only: /foo/
+selector[:foobar] # => true
+selector[:bar]    # => false
 
-separator = Separator.new only: 1..3
-separator[2.4] # => true
-separator[0]   # => false
+selector = Selector.new only: 1..3
+selector[2.4] # => true
+selector[0]   # => false
 
-separator = Separator.new only: -> value { value.is_a? Hash }
-separator[foo: :FOO] # => true
-separator[:foo]      # => false
+selector = Selector.new only: -> value { value.is_a? Hash }
+selector[foo: :FOO] # => true
+selector[:foo]      # => false
 ```
 
 ### Black Lists
 
 ```ruby
-separator = Separator.new except: [:bar, :qux]
+selector = Selector.new except: [:bar, :qux]
 
-separator[:foo] # => true
-separator[:bar] # => false
+selector[:foo] # => true
+selector[:bar] # => false
 ```
 
 ### Negation
 
 ```ruby
-blacklist = Separator.new except: /bar/
-separator = !blacklist
+blacklist = Selector.new except: /bar/
+selector = !blacklist
 
-separator[:bar] # => true
-separator[:foo] # => false
+selector[:bar] # => true
+selector[:foo] # => false
 ```
 
 ### Algebra
 
 ```ruby
-blacklist = Separator.new except: /bar/
-whitelist = Separator.new only: /foo/
+blacklist = Selector.new except: /bar/
+whitelist = Selector.new only: /foo/
 
-separator = whitelist & blacklist
+selector = whitelist & blacklist
 
-separator[:foobaz] # => true
-separator[:foobar] # => false
+selector[:foobaz] # => true
+selector[:foobar] # => false
 ```
 
 ```ruby
-blacklist = Separator.new except: /bar/
-whitelist = Separator.new only: /foo/
+blacklist = Selector.new except: /bar/
+whitelist = Selector.new only: /foo/
 
-separator = whitelist - blacklist # = whitelist + !blacklist
+selector = whitelist - blacklist # = whitelist + !blacklist
 
-separator[:foobar] # => true
-separator[:foo] # => false
-separator[:bar] # => false
+selector[:foobar] # => true
+selector[:foo] # => false
+selector[:bar] # => false
 ```
 
 ```ruby
-blacklist = Separator.new except: 1..5
-whitelist = Separator.new only: 4..8
+blacklist = Selector.new except: 1..5
+whitelist = Selector.new only: 4..8
 
-separator = whitelist | blacklist # = !(!whitelist + !blacklist)
-separator[0.5] # => true
-separator[5.5] # => true
-separator[2.5] # => false
+selector = whitelist | blacklist # = !(!whitelist + !blacklist)
+selector[0.5] # => true
+selector[5.5] # => true
+selector[2.5] # => false
 ```
 
 ### Immutability:
 
 ```ruby
-Separator.new.frozen? # => true
+Selector.new.frozen? # => true
 ```
 
 Installation
@@ -105,7 +105,7 @@ Add this line to your application's Gemfile:
 
 ```ruby
 # Gemfile
-gem "separator"
+gem "selector"
 ```
 
 Then execute:
@@ -117,7 +117,7 @@ bundle
 Or add it manually:
 
 ```
-gem install separator
+gem install selector
 ```
 
 Compatibility
@@ -134,7 +134,7 @@ Contributing
 ------------
 
 * Read the [STYLEGUIDE](config/metrics/STYLEGUIDE)
-* [Fork the project](https://github.com/nepalez/separator)
+* [Fork the project](https://github.com/nepalez/selector)
 * Create your feature branch (`git checkout -b my-new-feature`)
 * Add tests for it
 * Commit your changes (`git commit -am '[UPDATE] Add some feature'`)

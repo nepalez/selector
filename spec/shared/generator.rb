@@ -2,7 +2,7 @@
 
 # Generates the condition object with regexp
 def generate(regexp)
-  klass = Class.new(Separator::Condition)
+  klass = Class.new(Selector::Condition)
   klass.send(:define_method, :[]) { |value| nil ^ value[regexp] }
   klass.new
 end

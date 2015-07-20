@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Regexp do
+  describe Selector::Regexp do
 
     let(:one) { described_class.new(/1\.1/) }
     let(:two) { described_class.new(/2/) }
@@ -64,6 +64,6 @@ module Separator
 
     end # describe #[]
 
-  end # describe Separator::Regexp
+  end # describe Selector::Regexp
 
-end # module Separator
+end # module Selector

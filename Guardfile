@@ -8,7 +8,7 @@ guard :rspec, cmd: "bundle exec rspec" do
     "spec/unit/#{m[1]}_spec.rb"
   end
 
-  watch("lib/separator.rb")  { "spec" }
+  watch("lib/selector.rb")  { "spec" }
   watch("spec/spec_helper.rb") { "spec" }
 
 end # guard :rspec

@@ -3,28 +3,28 @@
 require "ice_nine"
 require "singleton"
 
-require_relative "separator/condition"
-require_relative "separator/anything"
-require_relative "separator/nothing"
+require_relative "selector/condition"
+require_relative "selector/anything"
+require_relative "selector/nothing"
 
-require_relative "separator/not"
-require_relative "separator/and"
-require_relative "separator/or"
+require_relative "selector/not"
+require_relative "selector/and"
+require_relative "selector/or"
 
-require_relative "separator/collection"
-require_relative "separator/array"
-require_relative "separator/regexp"
-require_relative "separator/function"
+require_relative "selector/collection"
+require_relative "selector/array"
+require_relative "selector/regexp"
+require_relative "selector/function"
 
 # Composable filters for lists of values
 #
-module Separator
+module Selector
 
   # Creates a condition from options
   #
   # @param [Hash] options
   #
-  # @return [Separator::Condition]
+  # @return [Selector::Condition]
   #
   def self.new(options)
     white = options.fetch(:only)   { ANYTHING }
@@ -36,7 +36,7 @@ module Separator
   #
   # @param [Object] clause
   #
-  # @return [Separator::Condition]
+  # @return [Selector::Condition]
   #
   def self.build(clause)
     return clause                 if [ANYTHING, NOTHING].include? clause
@@ -52,4 +52,4 @@ module Separator
   ANYTHING = Anything.instance
   NOTHING  = Nothing.instance
 
-end # module Separator
+end # module Selector

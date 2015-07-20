@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The condition that accepts any value
   #
@@ -14,10 +14,10 @@ module Separator
     # Returns true
     #
     # @example
-    #   condition = Separator::Anything.instance # singleton
+    #   condition = Selector::Anything.instance # singleton
     #   condition[:foo] # => true
     #
-    # @param (see Separator::Condition#[])
+    # @param (see Selector::Condition#[])
     #
     # @return [true]
     #
@@ -27,4 +27,4 @@ module Separator
 
   end # class Anything
 
-end # module Separator
+end # module Selector

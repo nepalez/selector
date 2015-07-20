@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Function do
+  describe Selector::Function do
 
     let(:function) { described_class.new -> v { v[/foo/] } }
 
@@ -41,6 +41,6 @@ module Separator
 
     end # describe #[]
 
-  end # describe Separator::Function
+  end # describe Selector::Function
 
-end # module Separator
+end # module Selector

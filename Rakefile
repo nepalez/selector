@@ -23,5 +23,5 @@ task default: "test:coverage:run"
 
 desc "Runs mutation metric for testing"
 task :mutant do
-  system "mutant -r separator --use rspec Separator* --fail-fast"
+  system "mutant -r selector --use rspec Selector* --fail-fast"
 end

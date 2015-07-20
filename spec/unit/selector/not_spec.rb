@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
-  describe Separator::Not do
+  describe Selector::Not do
 
     let(:inversion) { described_class.new condition }
     let(:condition) do
@@ -56,6 +56,6 @@ module Separator
 
     end # describe #!
 
-  end # describe Separator::Not
+  end # describe Selector::Not
 
-end # module Separator
+end # module Selector

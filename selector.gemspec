@@ -1,13 +1,13 @@
 $:.push File.expand_path("../lib", __FILE__)
-require "separator/version"
+require "selector/version"
 
 Gem::Specification.new do |gem|
 
-  gem.name        = "separator"
-  gem.version     = Separator::VERSION.dup
+  gem.name        = "selector"
+  gem.version     = Selector::VERSION.dup
   gem.author      = "Andrew Kozin"
   gem.email       = "andrew.kozin@gmail.com"
-  gem.homepage    = "https://github.com/nepalez/separator"
+  gem.homepage    = "https://github.com/nepalez/selector"
   gem.summary     = "Composable multi-type conditions."
   gem.license     = "MIT"
 

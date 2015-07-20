@@ -3,11 +3,11 @@
 describe "Negation" do
 
   it "works" do
-    blacklist = Separator.new except: /bar/
-    separator = !blacklist
+    blacklist = Selector.new except: /bar/
+    selector = !blacklist
 
-    expect(separator[:foo]).to eql(false)
-    expect(separator[:bar]).to eql(true)
+    expect(selector[:foo]).to eql(false)
+    expect(selector[:bar]).to eql(true)
   end
 
 end # describe Negation

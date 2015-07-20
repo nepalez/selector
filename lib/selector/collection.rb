@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module Separator
+module Selector
 
   # The condition checks if a value is included to the collection
   #
@@ -24,9 +24,9 @@ module Separator
     #   condition[:foo] # => true
     #   condition[:baz] # => false
     #
-    # @param (see Separator::Condition#[])
+    # @param (see Selector::Condition#[])
     #
-    # @return (see Separator::Condition#[])
+    # @return (see Selector::Condition#[])
     #
     def [](value)
       attribute.include? value
@@ -34,4 +34,4 @@ module Separator
 
   end # class Collection
 
-end # module Separator
+end # module Selector
