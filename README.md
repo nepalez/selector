@@ -1,5 +1,5 @@
-[WIP] Selector
-===============
+Selector
+========
 
 [![Gem Version](https://img.shields.io/gem/v/selector.svg?style=flat)][gem]
 [![Build Status](https://img.shields.io/travis/nepalez/selector/master.svg?style=flat)][travis]
