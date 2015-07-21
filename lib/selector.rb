@@ -2,6 +2,7 @@
 
 require "ice_nine"
 require "singleton"
+require "set"
 
 require_relative "selector/condition"
 require_relative "selector/anything"
@@ -41,7 +42,7 @@ module Selector
   def self.build(clause)
     return clause                 if [ANYTHING, NOTHING].include? clause
     return Regexp.new(clause)     if clause.instance_of? ::Regexp
-    return Array.new(clause)      if [::Array, Set].include? clause.class
+    return Array.new(clause)      if [::Array, ::Set].include? clause.class
     return Collection.new(clause) if clause.is_a? Enumerable
     return Function.new(clause)   if clause.respond_to? :call
     Array.new [clause]
