@@ -98,6 +98,18 @@ selector[2.5] # => false
 Selector.new.frozen? # => true
 ```
 
+Performance
+-----------
+
+Use the gem when you really need:
+
+* unified interface, agnostic to the types of conditions.
+* composition of various conditions.
+
+The selector is slow. And the simpler the condition, the more the cost in terms of performance, that can vary from x1.45 for functions to x3.5 for simple comparison.
+
+For details see the [benchmark](https://github.com/nepalez/selector/blob/master/benchmark/run.rb) and [its results](https://github.com/nepalez/selector/wiki/Benchmark).
+
 Installation
 ------------
 

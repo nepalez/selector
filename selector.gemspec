@@ -21,5 +21,6 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "ice_nine", "~> 0.11"
 
   gem.add_development_dependency "hexx-rspec", "~> 0.5"
+  gem.add_development_dependency "benchmark-ips", "~> 2.3"
 
 end # Gem::Specification
