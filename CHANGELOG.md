@@ -1,3 +1,11 @@
+v0.0.3 2015-07-26
+
+### Added
+
+* `Condition#eql?` to compare complex conditions (nepalez)
+
+[Compare v0.0.2...v0.0.3](https://github.com/nepalez/selector/compare/v0.0.2...v0.0.3)
+
 v0.0.2 2015-07-21
 
 ### Bugs fixed
