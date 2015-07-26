@@ -37,6 +37,7 @@ module Selector
     def ==(other)
       other.instance_of?(self.class) && attributes.eql?(other.attributes)
     end
+    alias_method :eql?, :==
 
     # @!method [](value)
     # Checks if the value satisfies the condtion
